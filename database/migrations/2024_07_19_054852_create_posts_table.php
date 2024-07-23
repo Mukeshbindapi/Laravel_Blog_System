@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('gallery_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->string('title');
@@ -20,6 +21,11 @@ return new class extends Migration
             $table->string('status')->default(false);
             $table->timestamps();
         });
+
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('description', 3000)->change();
+        });
+
     }
 
     /**

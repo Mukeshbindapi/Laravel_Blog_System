@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tags extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
     protected $fillable = ['name'];
 }
